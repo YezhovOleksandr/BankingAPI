@@ -1,8 +1,25 @@
+using BankingAPi.Infrastructure;
+using BankingAPi.Infrastructure.Options;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+
+builder.Services.Configure<DatabaseOptions>(builder.Configuration.GetSection(nameof(DatabaseOptions)));
+
+builder.Services.AddDbContext<ApplicationDbContext>
+(
+    (serviceProvider, opt) =>
+    {
+        var dbOptions = serviceProvider.GetRequiredService<IOptions<DatabaseOptions>>().Value;
+        opt.UseSqlServer(dbOptions.ConnectionString);
+        opt.EnableDetailedErrors();
+    }
+);
 
 var app = builder.Build();
 
@@ -14,24 +31,6 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
-
-app.MapGet("/weatherforecast", () =>
-    {
-        var forecast = Enumerable.Range(1, 5).Select(index =>
-                new WeatherForecast
-                (
-                    DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                    Random.Shared.Next(-20, 55),
-                    summaries[Random.Shared.Next(summaries.Length)]
-                ))
-            .ToArray();
-        return forecast;
-    })
-    .WithName("GetWeatherForecast");
 
 app.Run();
 
