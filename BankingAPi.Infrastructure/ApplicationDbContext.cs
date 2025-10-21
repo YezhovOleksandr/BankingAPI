@@ -10,7 +10,13 @@ public class ApplicationDbContext : DbContext
 
     public DbSet<IdentityUser> IdentityUsers { get; set; }
 
-    public DbSet<IdentityRole> Roles { get; set; }
+    public DbSet<IdentityRole> IdentityRoles { get; set; }
+
+    public DbSet<IdentityClient> IdentityClients { get; set; }
+
+    public DbSet<IdentityUserRole> IdentityUserRoles { get; set; }
+
+    public DbSet<IdentityRefreshToken> IdentityRefreshTokens { get; set; }
     
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
     {

@@ -11,13 +11,13 @@ public class IdentityUserEntityConfigurations : IEntityTypeConfiguration<Identit
     {
         builder.HasBaseEntity();
         
-        builder.Property(x => x.FirstName).IsRequired();
+        builder.Property(x => x.FirstName).HasMaxLength(50).IsRequired();
         
-        builder.Property(x => x.LastName).IsRequired();
+        builder.Property(x => x.LastName).HasMaxLength(50).IsRequired();
         
         builder.Property(x => x.Email).IsRequired();
         
-        builder.Property(x => x.Password).IsRequired();
+        builder.Property(x => x.Password).HasMaxLength(100).IsRequired();
         
         builder.Property(x => x.PhoneNumber).IsRequired();
         

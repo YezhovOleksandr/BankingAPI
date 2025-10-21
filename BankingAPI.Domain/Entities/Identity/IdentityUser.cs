@@ -13,4 +13,12 @@ public class IdentityUser : BaseEntity
     public required string Email { get; set; }
 
     public required string PhoneNumber { get; set; }
+
+    #region Nav Props
+
+    public List<IdentityUserRole>? UserRoles { get; set; } = [];
+    
+    public List<IdentityRefreshToken>? RefreshTokens { get; set; } = [];
+
+    #endregion
 }
