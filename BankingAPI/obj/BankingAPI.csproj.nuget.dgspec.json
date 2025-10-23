@@ -1,7 +1,7 @@
 {
   "format": 1,
   "restore": {
-    "D:\\repos\\IT_BankingAPI\\BankingApi\\BankingAPI.csproj": {}
+    "D:\\repos\\IT_BankingAPI\\BankingAPI\\BankingAPI.csproj": {}
   },
   "projects": {
     "D:\\repos\\IT_BankingAPI\\BankingAPI.Domain\\BankingAPI.Domain.csproj": {
@@ -166,14 +166,14 @@
         }
       }
     },
-    "D:\\repos\\IT_BankingAPI\\BankingApi\\BankingAPI.csproj": {
+    "D:\\repos\\IT_BankingAPI\\BankingAPI\\BankingAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\repos\\IT_BankingAPI\\BankingApi\\BankingAPI.csproj",
+        "projectUniqueName": "D:\\repos\\IT_BankingAPI\\BankingAPI\\BankingAPI.csproj",
         "projectName": "BankingAPI",
-        "projectPath": "D:\\repos\\IT_BankingAPI\\BankingApi\\BankingAPI.csproj",
+        "projectPath": "D:\\repos\\IT_BankingAPI\\BankingAPI\\BankingAPI.csproj",
         "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-        "outputPath": "D:\\repos\\IT_BankingAPI\\BankingApi\\obj\\",
+        "outputPath": "D:\\repos\\IT_BankingAPI\\BankingAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",

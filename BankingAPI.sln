@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankingAPi.Infrastructure",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankingAPI.Domain", "BankingAPI.Domain\BankingAPI.Domain.csproj", "{4E59AD1D-0D7F-4469-84DD-ADB3687F2F9E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankingAPI.Common", "BankingAPI.Common\BankingAPI.Common.csproj", "{2150E006-C815-46CD-B069-FBAD32758380}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{4E59AD1D-0D7F-4469-84DD-ADB3687F2F9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E59AD1D-0D7F-4469-84DD-ADB3687F2F9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4E59AD1D-0D7F-4469-84DD-ADB3687F2F9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2150E006-C815-46CD-B069-FBAD32758380}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2150E006-C815-46CD-B069-FBAD32758380}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2150E006-C815-46CD-B069-FBAD32758380}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2150E006-C815-46CD-B069-FBAD32758380}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
