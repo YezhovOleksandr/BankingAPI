@@ -17,7 +17,7 @@ public class ApplicationDbContext : DbContext
     public DbSet<IdentityUserRole> IdentityUserRoles { get; set; }
 
     public DbSet<IdentityRefreshToken> IdentityRefreshTokens { get; set; }
-    
+
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
     {
         
