@@ -2,7 +2,7 @@
 
 namespace BankingAPI.Common.Models.Identity;
 
-public class RegisterDTO
+public class RegisterDto
 {
     [Required(ErrorMessage = "First name is required")]
     public required string FirstName { get; set; }
@@ -12,6 +12,12 @@ public class RegisterDTO
 
     [Required(ErrorMessage = "Email is required")]
     public required string Email { get; set; }
+
+    [Required(ErrorMessage = "Username is required")]
+    public required string Username { get; set; }
+
+    [Required(ErrorMessage = "Email is required")]
+    public required string PhoneNumber { get; set; }
 
     [Required(ErrorMessage = "Password is required")]
     public required string Password { get; set; }
