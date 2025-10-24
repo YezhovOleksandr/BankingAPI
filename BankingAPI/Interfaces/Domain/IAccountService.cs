@@ -7,5 +7,5 @@ public interface IAccountService
 {
     Task RegisterAsync(IdentityUser user);
 
-    Task LoginAsync(LoginDto model);
+    Task<string> LoginAsync(LoginDto model);
 }

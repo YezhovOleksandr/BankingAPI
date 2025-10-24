@@ -27,8 +27,10 @@ public class AccountApiService : IAccountApiService
         await _accountService.RegisterAsync(user);
     }
 
-    public Task LoginAsync(LoginDto model)
+    public async Task<string> LoginAsync(LoginDto model)
     {
-        throw new NotImplementedException();
+        var token = await _accountService.LoginAsync(model);
+        
+        return token;
     }
 }

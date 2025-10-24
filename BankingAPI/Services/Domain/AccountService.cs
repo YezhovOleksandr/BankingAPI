@@ -50,9 +50,11 @@ public class AccountService : IAccountService
         };
 
         await _context.IdentityUserRoles.AddAsync(defaultRole);
+        
+        await _context.SaveChangesAsync();
     }
 
-    public async Task LoginAsync(LoginDto model)
+    public async Task<string> LoginAsync(LoginDto model)
     {
         var client = await _context.IdentityClients.AsNoTracking().FirstOrDefaultAsync(x => x.ClientId == model.ClientId)
                      ?? throw new Exception("Invalid Client");
@@ -69,8 +71,9 @@ public class AccountService : IAccountService
             throw new Exception("Invalid Credentials");
         }
 
-        var token = GenerateToken(user, client);
+        var token = await GenerateToken(user, client);
 
+        return token;
     }
 
     private async Task<string> GenerateToken(IdentityUser user, IdentityClient client)
@@ -91,26 +94,18 @@ public class AccountService : IAccountService
 
         var credentials = new SigningCredentials(rsaSecurityKey, SecurityAlgorithms.RsaSha256);
         
-        // Initialize a list of claims to include in the JWT
         var claims = new List<Claim>
         {
-            // Subject (sub) claim with the user's ID
             new(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
-            // JWT ID (jti) claim with a unique identifier for the token
             new(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-            // Name claim with the user's first name
             new(ClaimTypes.Name, user.FirstName),
-            // NameIdentifier claim with the user's email
             new(ClaimTypes.NameIdentifier, user.Email),
-            // Email claim with the user's email
             new(ClaimTypes.Email, user.Email)
         };
-        // Iterate through the user's roles and add each as a Role claim
         foreach (var userRole in user.UserRoles)
         {
             claims.Add(new Claim(ClaimTypes.Role, userRole.Role!.RoleName));
         }
-        // Define the JWT token's properties, including issuer, audience, claims, expiration, and signing credentials
         var tokenDescriptor = new JwtSecurityToken(
             issuer: _identityOptions.Issuer, // The token issuer, typically your application's URL
             audience: client.ClientUrl, // The intended recipient of the token, typically the client's URL
@@ -118,11 +113,8 @@ public class AccountService : IAccountService
             expires: DateTime.UtcNow.AddHours(1), // Token expiration time set to 1 hour from now
             signingCredentials: credentials // The credentials used to sign the token
         );
-        // Create a JWT token handler to serialize the token
         var tokenHandler = new JwtSecurityTokenHandler();
-        // Serialize the token to a string
         var token = tokenHandler.WriteToken(tokenDescriptor);
-        // Return the serialized JWT token
         return token;
     }
 }

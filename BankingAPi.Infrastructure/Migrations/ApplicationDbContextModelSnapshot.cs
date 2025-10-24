@@ -170,7 +170,7 @@ namespace BankingAPi.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("IdentitySigningKey");
+                    b.ToTable("IdentitySigningKeys");
                 });
 
             modelBuilder.Entity("BankingAPI.Domain.Entities.Identity.IdentityUser", b =>
