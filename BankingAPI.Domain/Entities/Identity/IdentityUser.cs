@@ -1,4 +1,6 @@
-﻿namespace BankingAPI.Domain.Entities.Identity;
+﻿using BankingAPI.Domain.Entities.UserWallet;
+
+namespace BankingAPI.Domain.Entities.Identity;
 
 public class IdentityUser : BaseEntity
 {
@@ -17,7 +19,8 @@ public class IdentityUser : BaseEntity
     #region Nav Props
 
     public List<IdentityUserRole>? UserRoles { get; set; } = [];
-    
+
+    public List<UserWalletEntity>? UserWallets { get; set; } = [];
     public List<IdentityRefreshToken>? RefreshTokens { get; set; } = [];
 
     #endregion

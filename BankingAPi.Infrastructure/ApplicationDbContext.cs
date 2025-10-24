@@ -1,5 +1,6 @@
 ﻿using BankingAPI.Domain.Entities;
 using BankingAPI.Domain.Entities.Identity;
+using BankingAPI.Domain.Entities.UserWallet;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 
@@ -19,6 +20,7 @@ public class ApplicationDbContext : DbContext
     public DbSet<IdentityRefreshToken> IdentityRefreshTokens { get; set; }
     
     public DbSet<IdentitySigningKey> IdentitySigningKeys { get; set; }
+    public DbSet<UserWalletEntity> UserWallets { get; set; }
 
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
     {

@@ -72,7 +72,7 @@ builder.Services.AddScoped<IAccountApiService, AccountApiService>();
 builder.Services.AddScoped<IAccountService, AccountService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IUserApiService, UserApiService>();
-
+builder.Services.AddHttpContextAccessor();
 var app = builder.Build();
 
 

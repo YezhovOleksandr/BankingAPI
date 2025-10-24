@@ -3,6 +3,8 @@ using System.Security.Claims;
 using System.Security.Cryptography;
 using BankingAPI.Common.Models.Identity;
 using BankingAPI.Domain.Entities.Identity;
+using BankingAPI.Domain.Entities.UserWallet;
+using BankingAPI.Domain.Enums;
 using BankingAPi.Infrastructure;
 using BankingAPI.Interfaces.Domain;
 using BankingAPI.Options;
@@ -50,7 +52,16 @@ public class AccountService : IAccountService
         };
 
         await _context.IdentityUserRoles.AddAsync(defaultRole);
+
+        var wallet = new UserWalletEntity()
+        {
+            UserId = user.Id,
+            CurrencyType = CurrencyType.UAH,
+            Amount = 0.0,
+            WalletNumber = Guid.NewGuid().ToString(),
+        };
         
+        await _context.UserWallets.AddAsync(wallet);
         await _context.SaveChangesAsync();
     }
 

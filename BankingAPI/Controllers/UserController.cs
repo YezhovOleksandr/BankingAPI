@@ -24,4 +24,20 @@ public class UserController : ControllerBase
         
         return Ok(users);
     }
+
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetUserById(string id)
+    {
+        var user = await _userApiService.GetUserById(id);
+        
+        return Ok(user);
+    }
+
+    [HttpGet("wallet/{walletNumber}")]
+    public async Task<IActionResult> GetUserByWalletId(string walletNumber)
+    {
+        var user = await _userApiService.GetUserByWalletNumber(walletNumber);
+        
+        return Ok(user);
+    }
 }
