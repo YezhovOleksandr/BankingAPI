@@ -14,7 +14,7 @@ public static class DbInitializerExtensions
             {
                 ClientId = "Client1",
                 Name = "Client Application 1",
-                ClientUrl = "https://client1.com",
+                ClientUrl = "http://localhost:5285",
                 ClientSecret = "secret",
                 IsActive = true
             },
@@ -22,7 +22,7 @@ public static class DbInitializerExtensions
             {
                 ClientId = "Client2",
                 Name = "Client Application 2",
-                ClientUrl = "https://client2.com",
+                ClientUrl = "http://localhost:5285",
                 ClientSecret = "secret",
                 IsActive = true
             }]);

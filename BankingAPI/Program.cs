@@ -41,10 +41,12 @@ builder.Services.AddAuthentication(opt =>
     opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
 }).AddJwtBearer(opt =>
 {
+
+    var identityOptions = new IdentityOptions() { Issuer = "http://localhost:5285" };
     opt.TokenValidationParameters = new TokenValidationParameters()
     {
         ValidateIssuer = true,
-        ValidIssuer = builder.Configuration.GetSection(nameof(BankingAPI.Options.IdentityOptions)).Value,
+        ValidIssuer = identityOptions.Issuer,
         ValidateAudience = true,
         ValidateLifetime = true,
         ValidateIssuerSigningKey = true,
@@ -53,7 +55,9 @@ builder.Services.AddAuthentication(opt =>
         {
             var httpClient = new HttpClient();
 
-            var jwks = httpClient.GetStringAsync($"{builder.Configuration["Jwt:Issuer"]}/.well-known/jwks.json").Result;
+            var options = builder.Configuration.GetSection(nameof(IdentityOptions)).Get<IdentityOptions>();
+            
+            var jwks = httpClient.GetStringAsync($"{options.Issuer}/.well-known/jwks.json").Result;
             // Parse the fetched JWKS into a JsonWebKeySet object
             var keys = new JsonWebKeySet(jwks);
 
