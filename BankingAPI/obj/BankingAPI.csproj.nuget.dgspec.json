@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\repos\\IT_BankingAPI\\BankingAPI\\BankingAPI.csproj": {}
+    "C:\\Users\\Satoru\\Work\\Repos\\IT_Banking\\BankingAPI\\BankingAPI\\BankingAPI.csproj": {}
   },
   "projects": {
-    "D:\\repos\\IT_BankingAPI\\BankingAPI.Domain\\BankingAPI.Domain.csproj": {
+    "C:\\Users\\Satoru\\Work\\Repos\\IT_Banking\\BankingAPI\\BankingAPI.Common\\BankingAPI.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\repos\\IT_BankingAPI\\BankingAPI.Domain\\BankingAPI.Domain.csproj",
-        "projectName": "BankingAPI.Domain",
-        "projectPath": "D:\\repos\\IT_BankingAPI\\BankingAPI.Domain\\BankingAPI.Domain.csproj",
-        "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-        "outputPath": "D:\\repos\\IT_BankingAPI\\BankingAPI.Domain\\obj\\",
+        "projectUniqueName": "C:\\Users\\Satoru\\Work\\Repos\\IT_Banking\\BankingAPI\\BankingAPI.Common\\BankingAPI.Common.csproj",
+        "projectName": "BankingAPI.Common",
+        "projectPath": "C:\\Users\\Satoru\\Work\\Repos\\IT_Banking\\BankingAPI\\BankingAPI.Common\\BankingAPI.Common.csproj",
+        "packagesPath": "C:\\Users\\Satoru\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Satoru\\Work\\Repos\\IT_Banking\\BankingAPI\\BankingAPI.Common\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Users\\Satoru\\Work\\VSSharedContent\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Satoru\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,7 +44,72 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.200"
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Satoru\\Work\\Repos\\IT_Banking\\BankingAPI\\BankingAPI.Domain\\BankingAPI.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Satoru\\Work\\Repos\\IT_Banking\\BankingAPI\\BankingAPI.Domain\\BankingAPI.Domain.csproj",
+        "projectName": "BankingAPI.Domain",
+        "projectPath": "C:\\Users\\Satoru\\Work\\Repos\\IT_Banking\\BankingAPI\\BankingAPI.Domain\\BankingAPI.Domain.csproj",
+        "packagesPath": "C:\\Users\\Satoru\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Satoru\\Work\\Repos\\IT_Banking\\BankingAPI\\BankingAPI.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Users\\Satoru\\Work\\VSSharedContent\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Satoru\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net9.0": {
@@ -71,21 +140,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\repos\\IT_BankingAPI\\BankingAPi.Infrastructure\\BankingAPi.Infrastructure.csproj": {
+    "C:\\Users\\Satoru\\Work\\Repos\\IT_Banking\\BankingAPI\\BankingAPi.Infrastructure\\BankingAPi.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\repos\\IT_BankingAPI\\BankingAPi.Infrastructure\\BankingAPi.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\Satoru\\Work\\Repos\\IT_Banking\\BankingAPI\\BankingAPi.Infrastructure\\BankingAPi.Infrastructure.csproj",
         "projectName": "BankingAPi.Infrastructure",
-        "projectPath": "D:\\repos\\IT_BankingAPI\\BankingAPi.Infrastructure\\BankingAPi.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-        "outputPath": "D:\\repos\\IT_BankingAPI\\BankingAPi.Infrastructure\\obj\\",
+        "projectPath": "C:\\Users\\Satoru\\Work\\Repos\\IT_Banking\\BankingAPI\\BankingAPi.Infrastructure\\BankingAPi.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\Satoru\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Satoru\\Work\\Repos\\IT_Banking\\BankingAPI\\BankingAPi.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Users\\Satoru\\Work\\VSSharedContent\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Satoru\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -99,8 +172,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "D:\\repos\\IT_BankingAPI\\BankingAPI.Domain\\BankingAPI.Domain.csproj": {
-                "projectPath": "D:\\repos\\IT_BankingAPI\\BankingAPI.Domain\\BankingAPI.Domain.csproj"
+              "C:\\Users\\Satoru\\Work\\Repos\\IT_Banking\\BankingAPI\\BankingAPI.Domain\\BankingAPI.Domain.csproj": {
+                "projectPath": "C:\\Users\\Satoru\\Work\\Repos\\IT_Banking\\BankingAPI\\BankingAPI.Domain\\BankingAPI.Domain.csproj"
               }
             }
           }
@@ -115,7 +188,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.200"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net9.0": {
@@ -162,21 +235,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\repos\\IT_BankingAPI\\BankingAPI\\BankingAPI.csproj": {
+    "C:\\Users\\Satoru\\Work\\Repos\\IT_Banking\\BankingAPI\\BankingAPI\\BankingAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\repos\\IT_BankingAPI\\BankingAPI\\BankingAPI.csproj",
+        "projectUniqueName": "C:\\Users\\Satoru\\Work\\Repos\\IT_Banking\\BankingAPI\\BankingAPI\\BankingAPI.csproj",
         "projectName": "BankingAPI",
-        "projectPath": "D:\\repos\\IT_BankingAPI\\BankingAPI\\BankingAPI.csproj",
-        "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-        "outputPath": "D:\\repos\\IT_BankingAPI\\BankingAPI\\obj\\",
+        "projectPath": "C:\\Users\\Satoru\\Work\\Repos\\IT_Banking\\BankingAPI\\BankingAPI\\BankingAPI.csproj",
+        "packagesPath": "C:\\Users\\Satoru\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Satoru\\Work\\Repos\\IT_Banking\\BankingAPI\\BankingAPI\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Users\\Satoru\\Work\\VSSharedContent\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Satoru\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -190,8 +267,11 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "D:\\repos\\IT_BankingAPI\\BankingAPi.Infrastructure\\BankingAPi.Infrastructure.csproj": {
-                "projectPath": "D:\\repos\\IT_BankingAPI\\BankingAPi.Infrastructure\\BankingAPi.Infrastructure.csproj"
+              "C:\\Users\\Satoru\\Work\\Repos\\IT_Banking\\BankingAPI\\BankingAPI.Common\\BankingAPI.Common.csproj": {
+                "projectPath": "C:\\Users\\Satoru\\Work\\Repos\\IT_Banking\\BankingAPI\\BankingAPI.Common\\BankingAPI.Common.csproj"
+              },
+              "C:\\Users\\Satoru\\Work\\Repos\\IT_Banking\\BankingAPI\\BankingAPi.Infrastructure\\BankingAPi.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\Satoru\\Work\\Repos\\IT_Banking\\BankingAPI\\BankingAPi.Infrastructure\\BankingAPi.Infrastructure.csproj"
               }
             }
           }
@@ -206,12 +286,20 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.200"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "BCrypt": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[9.0.10, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[9.0.7, )"
@@ -250,7 +338,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
