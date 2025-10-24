@@ -7,7 +7,7 @@ namespace BankingAPI.Controllers;
 
 [Route("api/v1/users")]
 [ApiController]
-[Authorize]
+[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
 public class UserController : ControllerBase
 {
     private readonly IUserApiService _userApiService;

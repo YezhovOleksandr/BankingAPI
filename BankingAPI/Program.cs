@@ -42,11 +42,13 @@ builder.Services.AddAuthentication(opt =>
 }).AddJwtBearer(opt =>
 {
 
-    var identityOptions = new IdentityOptions() { Issuer = "http://localhost:5285" };
+    var identityOptions = new IdentityOptions();
+    builder.Configuration.GetSection(nameof(IdentityOptions)).Bind(identityOptions);
     opt.TokenValidationParameters = new TokenValidationParameters()
     {
         ValidateIssuer = true,
         ValidIssuer = identityOptions.Issuer,
+        ValidAudience = identityOptions.Audience,
         ValidateAudience = true,
         ValidateLifetime = true,
         ValidateIssuerSigningKey = true,
@@ -68,6 +70,8 @@ builder.Services.AddAuthentication(opt =>
 
 builder.Services.AddScoped<IAccountApiService, AccountApiService>();
 builder.Services.AddScoped<IAccountService, AccountService>();
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IUserApiService, UserApiService>();
 
 var app = builder.Build();
 

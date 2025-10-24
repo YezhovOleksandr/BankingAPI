@@ -15,7 +15,6 @@ public static class DomainToDtoMappers
                 LastName = entity.LastName,
                 Email = entity.Email,
                 PhoneNumber = entity.PhoneNumber,
-                Password = entity.Password,
                 Username = entity.Username
             };
 }
