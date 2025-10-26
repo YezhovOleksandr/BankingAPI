@@ -6,5 +6,5 @@ public interface IAccountApiService
 {
     Task RegisterAsync(RegisterDto model);
 
-    Task<string> LoginAsync(LoginDto model);
+    Task<TokenResponseDto> LoginAsync(LoginDto model);
 }

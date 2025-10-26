@@ -5,6 +5,7 @@ using BankingAPI.Common.Models.Identity;
 using BankingAPI.Domain.Entities.Identity;
 using BankingAPI.Domain.Entities.UserWallet;
 using BankingAPI.Domain.Enums;
+using BankingAPI.Domain.Exceptions;
 using BankingAPi.Infrastructure;
 using BankingAPI.Interfaces.Domain;
 using BankingAPI.Options;
@@ -34,8 +35,7 @@ public class AccountService : IAccountService
 
         if (emailTaken)
         {
-            //todo: add custom exceptions 
-            throw new Exception("Email is already taken");
+            throw new ApiException("Email is already taken");
         }
 
         user.Password = BCryptHelper.HashPassword(user.Password, BCryptHelper.GenerateSalt());
@@ -68,12 +68,12 @@ public class AccountService : IAccountService
     public async Task<string> LoginAsync(LoginDto model)
     {
         var client = await _context.IdentityClients.AsNoTracking().FirstOrDefaultAsync(x => x.ClientId == model.ClientId)
-                     ?? throw new Exception("Invalid Client");
+                     ?? throw new ApiException("Invalid Client");
 
         var user = await _context.IdentityUsers.AsNoTracking()
                        .Include(x => x.UserRoles)!
                        .ThenInclude(x => x.Role).FirstOrDefaultAsync(x => x.Email.ToLower() == model.Email)
-                   ?? throw new Exception("Invalid credentials");
+                   ?? throw new ApiException("Invalid credentials");
 
         var isPasswordValid = BCryptHelper.CheckPassword(model.Password, user.Password);
 
@@ -90,7 +90,7 @@ public class AccountService : IAccountService
     private async Task<string> GenerateToken(IdentityUser user, IdentityClient client)
     {
         var signingKey = await _context.IdentitySigningKeys.AsNoTracking().FirstOrDefaultAsync(x => x.IsActive)
-                         ?? throw new Exception("No signing key available");
+                         ?? throw new ApiException("No signing key available");
 
         var privateKeyBytes = Convert.FromBase64String(signingKey.PrivateKey);
 

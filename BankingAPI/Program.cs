@@ -1,8 +1,10 @@
+using System.IdentityModel.Tokens.Jwt;
 using BankingAPi.Infrastructure;
 using BankingAPi.Infrastructure.Extensions;
 using BankingAPi.Infrastructure.Options;
 using BankingAPI.Interfaces.Api;
 using BankingAPI.Interfaces.Domain;
+using BankingAPI.Middlewares;
 using BankingAPI.Services.Api;
 using BankingAPI.Services.Background;
 using BankingAPI.Services.Domain;
@@ -41,7 +43,9 @@ builder.Services.AddAuthentication(opt =>
     opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
 }).AddJwtBearer(opt =>
 {
-
+    JwtSecurityTokenHandler.DefaultMapInboundClaims = false;
+    JwtSecurityTokenHandler.DefaultOutboundClaimTypeMap.Clear();
+    JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
     var identityOptions = new IdentityOptions();
     builder.Configuration.GetSection(nameof(IdentityOptions)).Bind(identityOptions);
     opt.TokenValidationParameters = new TokenValidationParameters()
@@ -72,6 +76,8 @@ builder.Services.AddScoped<IAccountApiService, AccountApiService>();
 builder.Services.AddScoped<IAccountService, AccountService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IUserApiService, UserApiService>();
+builder.Services.AddScoped<IWalletService, WalletService>();
+builder.Services.AddScoped<IWalletApiService, WalletApiService>();
 builder.Services.AddHttpContextAccessor();
 var app = builder.Build();
 
@@ -86,6 +92,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 app.MapControllers();
 
 using var scope = app.Services.CreateScope();

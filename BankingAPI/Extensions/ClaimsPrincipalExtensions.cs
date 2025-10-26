@@ -4,7 +4,7 @@ namespace BankingAPI.Extensions;
 
 public static class ClaimsPrincipalExtensions
 {
-    private const string SubjectClaim = "sub";
+    private const string SubjectClaim = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier";
     
     public static string Sub(this ClaimsPrincipal claimsPrincipal)
     {

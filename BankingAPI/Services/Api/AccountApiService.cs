@@ -1,4 +1,5 @@
-﻿using BankingAPI.Common.Models.Identity;
+﻿using System.ComponentModel.DataAnnotations;
+using BankingAPI.Common.Models.Identity;
 using BankingAPI.Interfaces.Api;
 using BankingAPI.Interfaces.Domain;
 using BankingAPI.Mappers.Identity;
@@ -20,17 +21,16 @@ public class AccountApiService : IAccountApiService
 
         if (user is null)
         {
-            //todo: add custom exception
-            throw new Exception("Invalid input data");
+            throw new ValidationException("Invalid input data");
         }
 
         await _accountService.RegisterAsync(user);
     }
 
-    public async Task<string> LoginAsync(LoginDto model)
+    public async Task<TokenResponseDto> LoginAsync(LoginDto model)
     {
         var token = await _accountService.LoginAsync(model);
         
-        return token;
+        return new TokenResponseDto() {AccessToken = token};
     }
 }
