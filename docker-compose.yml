@@ -1,0 +1,69 @@
+version: "3.9"
+
+services:
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "Passw0rd"
+      MSSQL_PID: "Developer"
+      MSSQL_TCP_PORT: 1433
+    ports:
+      - "1433:1433"
+    volumes:
+      # Named volume avoids Windows ACL headaches with bind mounts
+      - mssql-data:/var/opt/mssql
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/mssql-tools18/bin/sqlcmd -C -S localhost,1433 -U sa -P 'Passw0rd' -Q 'SELECT 1' -b -o /dev/null" ]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    restart: unless-stopped
+  db-migrate:
+    image: mcr.microsoft.com/dotnet/sdk:9.0
+    working_dir: /src
+    volumes:
+      - .:/src
+    depends_on:
+      mssql:
+        condition: service_healthy
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      DatabaseOptions__ConnectionString: "Server=tcp:mssql,1433;Initial Catalog=BankingSolution;User ID=sa;Password=Passw0rd;Encrypt=True;TrustServerCertificate=True;MultipleActiveResultSets=True;"
+    entrypoint: >
+      bash -lc '
+        set -euxo pipefail
+        /usr/bin/dotnet --info
+        /usr/bin/dotnet restore
+        /usr/bin/dotnet tool install --global dotnet-ef || true
+        # call the tool directly; no reliance on PATH
+        /root/.dotnet/tools/dotnet-ef database update \
+          -s BankingAPI/BankingAPI.csproj \
+          -p BankingAPi.Infrastructure/BankingAPi.Infrastructure.csproj \
+          -c ApplicationDbContext \
+          --no-build
+      '
+    restart: "no"
+  
+  
+  
+  bankingapi:
+    build:
+      context: .
+      dockerfile: BankingAPI/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: http://+:80
+      DatabaseOptions__ConnectionString: "Server=tcp:mssql,1433;Initial Catalog=BankingSolution;User ID=sa;Password=Passw0rd;Encrypt=True;TrustServerCertificate=True;MultipleActiveResultSets=True;"
+      IdentityOptions__Issuer: "host.docker.internal"
+      IdentityOptions__Audience: "host.docker.internal"
+    ports:
+      - "5285:80"
+    depends_on:
+      mssql:
+        condition: service_healthy
+      db-migrate:
+        condition: service_completed_successfully
+
+volumes:
+  mssql-data:
