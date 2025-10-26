@@ -39,8 +39,7 @@ services:
         /root/.dotnet/tools/dotnet-ef database update \
           -s BankingAPI/BankingAPI.csproj \
           -p BankingAPi.Infrastructure/BankingAPi.Infrastructure.csproj \
-          -c ApplicationDbContext \
-          --no-build
+          -c ApplicationDbContext
       '
     restart: "no"
   
