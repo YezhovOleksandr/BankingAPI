@@ -1,7 +1,7 @@
 Hi! So, in order to boot up this project there is couple thigs you need to do first:
 1. clone this repo
 2. install docker
-3. when docker installed, run `docker compose up -d`
+3. when docker installed, run `docker compose up -d` in directory with `docker-compose.yml` file
 4. When booted up, swagger can be accessed `http://localhost:5285/swagger`
 5. Register, get token then put token into authorize in swagger or in authorization header
 6. Enjoy
