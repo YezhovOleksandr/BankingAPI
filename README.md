@@ -8,7 +8,7 @@ Hi! So, in order to boot up this project there is couple thigs you need to do fi
 
 So, when you got access token and call getUsers, you will see all users but only your user will balance in the dto.
 If you are admin, then for every user you created, you will see all info.
-This concerncs all get user info(You can't see balance of other clients unless you are admin)
+This concerns all get user info(You can't see balance of other clients unless you are admin)
 
 P. S. I know that interview task requires writing tests, but I hate writing tests with every living cell in my body, so if this is a requirement to pass on, then unlucky))
 Anyway, thanks a lot for this task, I had fun writing it)
