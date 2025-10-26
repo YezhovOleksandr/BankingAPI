@@ -45,6 +45,7 @@ public class UserApiService : IUserApiService
 
     private string? GetUserId()
     {
-        return _httpContextAccessor.HttpContext?.User.Sub() ?? string.Empty;
+        var user = _httpContextAccessor!.HttpContext!.User;
+        return user.IsInRole("Admin") ? null : user.Sub(); 
     }
 }

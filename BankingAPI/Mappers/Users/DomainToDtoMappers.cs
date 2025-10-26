@@ -25,7 +25,7 @@ public static class DomainToDtoMappers
     public static UserWalletDto? ToDto(this UserWalletEntity? entity, string? userId) =>
         entity == null
             ? null
-            : entity.UserId.ToString() == userId
+            : entity.UserId.ToString() == userId || userId == null
                 ? new UserWalletDto()
                 {
                     Id = entity.Id.ToString(),
