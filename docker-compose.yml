@@ -36,7 +36,6 @@ services:
         /usr/bin/dotnet --info
         /usr/bin/dotnet restore
         /usr/bin/dotnet tool install --global dotnet-ef || true
-        # call the tool directly; no reliance on PATH
         /root/.dotnet/tools/dotnet-ef database update \
           -s BankingAPI/BankingAPI.csproj \
           -p BankingAPi.Infrastructure/BankingAPi.Infrastructure.csproj \
@@ -55,8 +54,8 @@ services:
       ASPNETCORE_ENVIRONMENT: Development
       ASPNETCORE_URLS: http://+:80
       DatabaseOptions__ConnectionString: "Server=tcp:mssql,1433;Initial Catalog=BankingSolution;User ID=sa;Password=Passw0rd;Encrypt=True;TrustServerCertificate=True;MultipleActiveResultSets=True;"
-      IdentityOptions__Issuer: "host.docker.internal"
-      IdentityOptions__Audience: "host.docker.internal"
+      IdentityOptions__Issuer: "http://bankingapi"
+      IdentityOptions__Audience: "http://bankingapi"
     ports:
       - "5285:80"
     depends_on:
