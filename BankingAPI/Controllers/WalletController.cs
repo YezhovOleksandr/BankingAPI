@@ -24,9 +24,9 @@ public class WalletController : ControllerBase
     }
 
     [HttpPatch("{walletNumber}/transfer")]
-    public async Task<IActionResult> TranferFunds(TransferFundsDto model)
+    public async Task<IActionResult> TranferFunds(TransferFundsDto model, string walletNumber)
     {
-        await _walletApiService.TransferMoneyAsync(model);
+        await _walletApiService.TransferMoneyAsync(model, walletNumber);
         
         return Ok();
     }

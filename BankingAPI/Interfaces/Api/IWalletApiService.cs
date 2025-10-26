@@ -7,7 +7,7 @@ public interface IWalletApiService
 {
     Task DepositMoneyAsync(DepositFundsDto model, string walletNumber);
     
-    Task TransferMoneyAsync(TransferFundsDto model);
+    Task TransferMoneyAsync(TransferFundsDto model, string walletNumber);
     
     Task<UserWalletDto?> GetByIdAsync(string id);
 }

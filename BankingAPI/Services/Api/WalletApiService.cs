@@ -24,9 +24,10 @@ public class WalletApiService : IWalletApiService
         await _walletService.DepositFundsAsync(model);
     }
 
-    public async Task TransferMoneyAsync(TransferFundsDto model)
+    public async Task TransferMoneyAsync(TransferFundsDto model, string walletNumber)
     {
         var userId = GetUserId();
+        model.WalletNumber = walletNumber;
         
         var initialWallet = await _walletService.GetByUserIdAsync(Guid.Parse(userId));
 
