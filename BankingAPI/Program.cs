@@ -33,6 +33,6 @@ app.MapControllers();
 
 using var scope = app.Services.CreateScope();
 var context = scope.ServiceProvider.GetService<ApplicationDbContext>()!;
-DbInitializerExtensions.InitDb(context);
+DbInitializerExtensions.InitDb(context, builder.Configuration);
 
 app.Run();

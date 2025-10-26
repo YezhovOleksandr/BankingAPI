@@ -1,4 +1,5 @@
-﻿using System.IdentityModel.Tokens.Jwt;
+﻿using System.ComponentModel.DataAnnotations;
+using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using BankingAPI.Common.Models.Identity;
@@ -68,18 +69,18 @@ public class AccountService : IAccountService
     public async Task<string> LoginAsync(LoginDto model)
     {
         var client = await _context.IdentityClients.AsNoTracking().FirstOrDefaultAsync(x => x.ClientId == model.ClientId)
-                     ?? throw new ApiException("Invalid Client");
+                     ?? throw new ValidationException("Invalid Client");
 
         var user = await _context.IdentityUsers.AsNoTracking()
                        .Include(x => x.UserRoles)!
                        .ThenInclude(x => x.Role).FirstOrDefaultAsync(x => x.Email.ToLower() == model.Email)
-                   ?? throw new ApiException("Invalid credentials");
+                   ?? throw new ValidationException("Invalid credentials");
 
         var isPasswordValid = BCryptHelper.CheckPassword(model.Password, user.Password);
 
         if (!isPasswordValid)
         {
-            throw new Exception("Invalid Credentials");
+            throw new ValidationException("Invalid Credentials");
         }
 
         var token = await GenerateToken(user, client);
