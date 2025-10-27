@@ -5,6 +5,7 @@ Hi! So, in order to boot up this project there is couple thigs you need to do fi
 4. When booted up, swagger can be accessed `http://localhost:5285/swagger`
 5. Register, get token then put token into authorize in swagger or in authorization header
 6. Enjoy
+7. When accessing token in api/v1/account/token in client enter "client1"
 
 So, when you got access token and call getUsers, you will see all users but only your user will balance in the dto.
 If you are admin, then for every user you created, you will see all info.
